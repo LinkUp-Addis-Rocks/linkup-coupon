@@ -94,6 +94,9 @@ async function claimCoupon(e) {
 		if (error) {
 			throw new Error(error)
 		}
+
+		toggleInfoForm(false)
+		toggleSuccess(true)
 	} catch (error) {
 		console.error(error);	
 	} finally {
