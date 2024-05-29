@@ -3,6 +3,7 @@ const errorDiv = document.querySelector('.error');
 const infoFormDiv = document.querySelector('.info-form');
 const successDiv = document.querySelector('.success');
 const noCouponsDiv = document.querySelector('.no-coupons');
+const claimBtn = document.querySelector('#claim-offer-btn');
 
 function toggleDiv(div, flag) {
 	if (flag) {
@@ -33,3 +34,12 @@ export function toggleNoCoupons(flag) {
 	toggleDiv(noCouponsDiv, flag);
 }
 
+export function toggleClaimBtnLoading(flag) {
+	claimBtn.dataset.loading = flag;
+
+	if (flag) {
+		claimBtn.innerHTML = `<img src="./assets/img/spinner-white.svg" alt="Loading...">`;
+	} else {
+		claimBtn.innerHTML = 'Claim Offer'
+	}
+}

@@ -1,8 +1,15 @@
-import { toggleInfoForm, toggleSpinner, toggleError, toggleSuccess, toggleNoCoupons } from "./toggle.js";
+import { toggleInfoForm, toggleSpinner, toggleError, toggleSuccess, toggleNoCoupons, toggleClaimBtnLoading } from "./toggle.js";
 
 // * DOM elements
 const rewardDiv = document.querySelector('.reward-text');
 const imgDiv = document.querySelector('.coupon-img');
+const infoForm = document.querySelector('#info-form')
+const nameInput = document.querySelector('#name');
+const phoneInput = document.querySelector('#phone');
+const claimBtn = document.querySelector('#claim-offer-btn');
+
+// * Event Listeners
+infoForm.addEventListener('submit', claimCoupon)
 
 // * Supabase
 const script = document.createElement('script');
@@ -29,6 +36,8 @@ function loadSupabase() {
 	const supabaseAnonKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImtkZ3FpaWJsaXR2cm5jZGlraXJlIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTY0NzgxNzIsImV4cCI6MjAzMjA1NDE3Mn0.AUeXqzB81IN6eotwD8BYsksRricTV3z4hnjzaBMrYh8';
 	
 	const supabase = window.supabase.createClient(supabaseUrl, supabaseAnonKey);
+
+	window.supabaseClient = supabase
 
 	return supabase;
 }
@@ -64,3 +73,30 @@ async function loadCoupon(code, supabase) {
 		}
 	}
 } 
+
+async function claimCoupon(e) {
+	e.preventDefault();
+	if (claimBtn.dataset.loading === 'true') {
+		return;
+	}
+
+	toggleClaimBtnLoading(true)
+
+	const payload = {
+		"Name": nameInput.value,
+		"Phone Number": phoneInput.value,
+		"Coupon": getCouponCode(),
+	}
+
+	try {
+		console.log('Adding winners');
+		const { error } = await window.supabaseClient.from('Winners').insert(payload)
+		if (error) {
+			throw new Error(error)
+		}
+	} catch (error) {
+		console.error(error);	
+	} finally {
+		toggleClaimBtnLoading(false)
+	}
+}

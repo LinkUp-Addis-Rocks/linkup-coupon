@@ -7,6 +7,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="icon" href="./assets/img/favicon.png" type="image/x-icon">
 	<link rel="stylesheet" href="./assets/css/main.css">
+	<link rel="stylesheet" href="./assets/css/form.css">
 	<title>Linkup Coupons</title>
 </head>
 
@@ -21,11 +22,19 @@
 		<div class="info-form hidden">
 			<div class="coupon-img"></div>
 			<div class="reward">
-				<h2>Get a chance to win <span class="reward-text"></span></h2>
+				<h3>Get a chance to win <span class="reward-text"></span></h3>
 				<h6>Enter your contact information to reveal your special offer</h6>
-				<form action="#" method="post">
-					<input type="email" name="email" id="email" placeholder="Enter your email address" required>
-					<button type="submit">Reveal Offer</button>
+				<form id="info-form" class="form">
+					<div class="input-field">
+						<label for="name">Name</label>
+						<input type="text" id="name" name="name" placeholder="Enter your name" required>
+					</div>
+					<div class="input-field">
+						<label for="phone">Phone Number</label>
+						<input type="tel" id="phone" name="phone" placeholder="Enter phone number"
+							pattern="^(?:\+2519|\+2511|\+2517|09|01|07)\d{8}$" required>
+					</div>
+					<button id="claim-offer-btn" type="submit" data-loading="false">Claim Offer</button>
 				</form>
 			</div>
 		</div>
