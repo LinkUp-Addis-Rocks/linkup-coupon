@@ -67,8 +67,8 @@ async function loadCoupon(code, supabase) {
         .single();
 
     if (error) {
-        console.error(error);
-        throw new Error("Error loading coupon");
+        toggleNoCoupons(true);
+        // throw new Error("Error loading coupon");
     }
 
     if (data) {
@@ -102,11 +102,17 @@ async function claimCoupon(e) {
 
     try {
         console.log("Adding winners");
-        const { error } = await window.supabaseClient
+        const response = await window.supabaseClient
             .from("Winners")
             .insert(payload);
+
+        const { data, error } = response;
+
+        console.log();
         if (error) {
-            throw new Error(error);
+            toggleInfoForm(false);
+            toggleNoCoupons(true);
+            throw new Error("No remaining uses");
         }
 
         toggleInfoForm(false);
