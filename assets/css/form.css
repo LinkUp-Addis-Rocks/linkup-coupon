@@ -8,7 +8,7 @@
 
 .input-field {
     width: 100%;
-    max-width: 400px;
+    max-width: 70vw;
     display: flex;
     flex-direction: column;
 }
@@ -38,7 +38,7 @@ button[type="submit"] {
     margin-top: 24px;
     margin-bottom: 20px;
     width: 100%;
-    max-width: 400px;
+    max-width: 70vw;
     background-color: #dfb432bd; /* Change button color */
     letter-spacing: 0.15rem;
     /* bold */
