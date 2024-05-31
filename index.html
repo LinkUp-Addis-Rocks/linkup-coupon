@@ -1,64 +1,95 @@
 <!DOCTYPE html>
 <html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="icon" href="./assets/img/favicon.png" type="image/x-icon" />
+        <link rel="stylesheet" href="./assets/css/main.css" />
+        <link rel="stylesheet" href="./assets/css/form.css" />
+        <title>Linkup Coupons</title>
+    </head>
 
-<head>
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="icon" href="./assets/img/favicon.png" type="image/x-icon">
-	<link rel="stylesheet" href="./assets/css/main.css">
-	<link rel="stylesheet" href="./assets/css/form.css">
-	<title>Linkup Coupons</title>
-</head>
+    <body>
+        <div class="container">
+            <!-- * SPINNER -->
+            <div class="spinner hidden">
+                <img src="./assets/img/spinner-white.svg" alt="Loading..." />
+            </div>
 
-<body>
-	<div class="container">
-		<!-- * SPINNER -->
-		<div class="spinner hidden">
-			<img src="./assets/img/spinner-white.svg" alt="Loading...">
-		</div>
+            <!-- * FIRST PAGE: INFO FORM -->
+            <div class="info-form hidden">
+                <div class="img-container"><div class="coupon-img"></div></div>
+                <div class="reward">
+                    <div class="info">
+                        <h3>
+                            Get a chance to win
+                            <span class="reward-text"></span>
+                        </h3>
+                        <h6>
+                            Enter your contact information to reveal your
+                            special offer
+                        </h6>
+                    </div>
+                    <form id="info-form" class="form">
+                        <div class="input-field">
+                            <!-- <label for="name">Name</label> -->
+                            <input
+                                type="text"
+                                id="name"
+                                name="name"
+                                placeholder="Enter your name"
+                                required
+                            />
+                        </div>
+                        <div class="input-field">
+                            <!-- <label for="phone">Phone Number</label> -->
+                            <input
+                                type="tel"
+                                id="phone"
+                                name="phone"
+                                placeholder="Enter phone number"
+                                pattern="^(?:\+2519|\+2511|\+2517|09|01|07)\d{8}$"
+                                required
+                            />
+                        </div>
+                        <button
+                            id="claim-offer-btn"
+                            type="submit"
+                            data-loading="false"
+                        >
+                            CLAIM OFFER
+                        </button>
+                    </form>
+                </div>
+            </div>
 
-		<!-- * FIRST PAGE: INFO FORM -->
-		<div class="info-form hidden">
-			<div class="coupon-img"></div>
-			<div class="reward">
-				<h3>Get a chance to win <span class="reward-text"></span></h3>
-				<h6>Enter your contact information to reveal your special offer</h6>
-				<form id="info-form" class="form">
-					<div class="input-field">
-						<label for="name">Name</label>
-						<input type="text" id="name" name="name" placeholder="Enter your name" required>
-					</div>
-					<div class="input-field">
-						<label for="phone">Phone Number</label>
-						<input type="tel" id="phone" name="phone" placeholder="Enter phone number"
-							pattern="^(?:\+2519|\+2511|\+2517|09|01|07)\d{8}$" required>
-					</div>
-					<button id="claim-offer-btn" type="submit" data-loading="false">Claim Offer</button>
-				</form>
-			</div>
-		</div>
+            <!-- * SECOND PAGE: SUCCESS PAGE -->
+            <div class="success hidden">
+                <div class="info">
+                    <h1>Congratulations!</h1>
+                    <h4>You have successfully claimed your offer</h4>
+                    <p>Check your email for your special offer</p>
+                </div>
+            </div>
 
-		<!-- * SECOND PAGE: SUCCESS PAGE -->
-		<div class="success hidden">
-			<h2>Thank you for participating!</h2>
-			<h6>Check your email for your special offer</h6>
-		</div>
+            <!-- * THIRD PAGE: NO COUPONS LEFT -->
+            <div class="no-coupons hidden">
+                <div class="info">
+                    <h2>Sorry, all coupons have been claimed</h2>
+                    <p>Check later editions for more offers</p>
+                </div>
+            </div>
 
-		<!-- * THIRD PAGE: NO COUPONS LEFT -->
-		<div class="no-coupons hidden">
-			<h2>Sorry, all coupons have been claimed</h2>
-			<h6>Check later editions for more offers</h6>
-		</div>
+            <!-- * ERROR PAGE -->
+            <div class="error hidden">
+                <div class="info">
+                    <h2>Oops! Something went wrong</h2>
+                    <p>Please try again later</p>
+                </div>
+            </div>
+        </div>
 
-		<!-- * ERROR PAGE -->
-		<div class="error hidden">
-			<h2>Oops! Something went wrong</h2>
-			<h6>Please try again later</h6>
-		</div>
-	</div>
-
-	<script type="module" src="./assets/js/main.js"></script>
-</body>
-
+        <script type="module" src="./assets/js/main.js"></script>
+    </body>
 </html>

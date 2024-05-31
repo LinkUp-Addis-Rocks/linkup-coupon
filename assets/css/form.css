@@ -1,53 +1,61 @@
 .form {
-  display: flex;
-  flex-direction: column;
-	align-items: center;
-  gap: 1rem;  /* Adjust spacing between fields */
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem; /* Adjust spacing between fields */
 }
 
 .input-field {
-	width: 100%;
-	max-width: 400px;
-  display: flex;
-  flex-direction: column;
+    width: 100%;
+    max-width: 70vw;
+    display: flex;
+    flex-direction: column;
 }
 
 .input-field label {
-  margin-bottom: 5px;
-  font-size: 0.8rem;
-  color: #888;
+    margin-bottom: 5px;
+    font-size: 0.8rem;
+    /* color: #888; */
+    color: white;
 }
 
 input[type="text"],
 input[type="tel"] {
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  font-size: 1rem;
-  outline: none; /* Remove default outline */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+    outline: none; /* Remove default outline */
 }
 
 input[type="text"]:focus,
 input[type="tel"]:focus {
-  border-color: #007bff; /* Change border color on focus */
+    border-color: #007bff; /* Change border color on focus */
 }
 
 button[type="submit"] {
-	margin-top: 24px;
-	width: 100%;
-	max-width: 400px;
-  background-color: #007bff;
-  color: white;
-  padding: 20px 20px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
+    margin-top: 24px;
+    margin-bottom: 20px;
+    width: 100%;
+    max-width: 70vw;
+    background-color: #dfb432bd; /* Change button color */
+    letter-spacing: 0.15rem;
+    /* bold */
+    font-weight: bold;
+    font-size: medium;
+    word-spacing: 0.1rem;
+    color: black;
+    padding: 20px 20px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
 }
 
-button[type="submit"]:hover {
-  background-color: #0067cc; /* Change button color on hover */
-}
+/* button[type="submit"]:hover {
+    background-color: #0067cc;
+} */
 
 button[type="submit"] img {
-  height: 16px;
+    height: 16px;
 }
